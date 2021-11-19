@@ -15,10 +15,35 @@ pubic class Velo extends Vehicule { //subclass Velo
 
     }
 
+    public double getAvgspeed() {
+        return avgspeed;
+    }
 
+    public void setAvgspeed(double avgspeed) {
+        this.avgspeed = avgspeed;
+    }
 
+    public double getVeloco2() {
+        return veloco2;
+    }
 
+    public void setVeloco2(double veloco2) {
+        this.veloco2 = veloco2;
+    }
 
+    public double getVeloweight() {
+        return veloweight;
+    }
 
+    public void setVeloweight(double veloweight) {
+        this.veloweight = veloweight;
+    }
 
+    public double getVelousingPrice() {
+        return velousingPrice;
+    }
+
+    public void setVelousingPrice(double velousingPrice) {
+        this.velousingPrice = velousingPrice;
+    }
 }

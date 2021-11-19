@@ -19,8 +19,51 @@ pubic class Vehicule { //superclass vehicule
         this.usingPrice = up;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public double getPrice() {
+        return price;
+    }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
+    public double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
+
+    public double getCo2() {
+        return co2;
+    }
+
+    public void setCo2(double co2) {
+        this.co2 = co2;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public double getUsingPrice() {
+        return usingPrice;
+    }
+
+    public void setUsingPrice(double usingPrice) {
+        this.usingPrice = usingPrice;
+    }
 }

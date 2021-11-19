@@ -20,10 +20,51 @@ pubic class Scooter extends Vehicule { //subclass Scooter
 
     }
 
+    public double getScooterco2() {
+        return scooterco2;
+    }
 
+    public double getScooterconso() {
+        return scooterconso;
+    }
 
+    public double getScooterspeed() {
+        return scooterspeed;
+    }
 
+    public double getScooterusingprice() {
+        return scooterusingprice;
+    }
 
+    public double getSp98price() {
+        return sp98price;
+    }
 
+    public double getZyl() {
+        return zyl;
+    }
 
+    public void setZyl(double zyl) {
+        this.zyl = zyl;
+    }
+
+    public void setScooterconso(double scooterconso) {
+        this.scooterconso = scooterconso;
+    }
+
+    public void setScooterspeed(double scooterspeed) {
+        this.scooterspeed = scooterspeed;
+    }
+
+    public void setScooterco2(double scooterco2) {
+        this.scooterco2 = scooterco2;
+    }
+
+    public void setScooterusingprice(double scooterusingprice) {
+        this.scooterusingprice = scooterusingprice;
+    }
+
+    public void setSp98price(double sp98price) {
+        this.sp98price = sp98price;
+    }
 }
