@@ -19,8 +19,6 @@ public class Salary {
         if this.isCyclist {
             this.cylcistType = WhichTypeOfCyclist();
         }
-
-
     }
 
     public void WhichTypeOfCyclist() throws Exception{

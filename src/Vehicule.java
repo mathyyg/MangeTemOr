@@ -1,6 +1,6 @@
 import java.util.*;
 
-pubic class Vehicule { //superclass vehicule
+pubic abstract class Vehicule { //superclass vehicule
 
     protected String name;
     protected double price;
