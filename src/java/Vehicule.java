@@ -1,3 +1,5 @@
+package java;
+
 import java.util.*;
 
 public abstract class Vehicule { //superclass vehicule

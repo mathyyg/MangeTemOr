@@ -1,6 +1,6 @@
-import java.util.*;
+package java;
 
-public class Velo extends Vehicule { //subclass Velo
+public class Velo extends Vehicule { //subclass java.Velo
 
     private double avgspeed;
     private double veloco2;

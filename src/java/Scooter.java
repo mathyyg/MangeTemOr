@@ -1,6 +1,6 @@
-import java.util.*;
+package java;
 
-public class Scooter extends Vehicule { //subclass Scooter
+public class Scooter extends Vehicule { //subclass java.Scooter
 
     private double zyl;
     private double scooterconso;
