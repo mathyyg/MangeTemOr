@@ -10,13 +10,15 @@ new FormModel {
 		} ) {
 			name: "this"
 			"title": "MangeTem'Or"
+			"$sizePolicy": 1
+			"defaultCloseOperation": 2
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Start-icon.png" )
 				"text": "Lancer l'application"
 				"preferredSize": new java.awt.Dimension( 173, 45 )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
-				"value": "cell 1 0"
+				"value": "cell 1 0 2 1"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
@@ -31,7 +33,7 @@ new FormModel {
 				"value": "cell 1 2,alignx center,growx 0"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 230, 45 )
+			"location": new java.awt.Point( 195, 125 )
 			"size": new java.awt.Dimension( 350, 140 )
 		} )
 	}

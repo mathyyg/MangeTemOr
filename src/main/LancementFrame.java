@@ -26,6 +26,7 @@ public class LancementFrame extends JFrame {
 
         //======== this ========
         setTitle("MangeTem'Or");
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         var contentPane = getContentPane();
         contentPane.setLayout(new MigLayout(
             "hidemode 3,align center center",
@@ -42,7 +43,7 @@ public class LancementFrame extends JFrame {
         button1.setIcon(new ImageIcon(getClass().getResource("/Start-icon.png")));
         button1.setText("Lancer l'application");
         button1.setPreferredSize(new Dimension(173, 45));
-        contentPane.add(button1, "cell 1 0");
+        contentPane.add(button1, "cell 1 0 2 1");
 
         //---- label1 ----
         label1.setText("R\u00e9alis\u00e9 par Mateo Esteves & Thomas Douillard");
@@ -51,7 +52,7 @@ public class LancementFrame extends JFrame {
         //---- label2 ----
         label2.setText("Les Infopotes \u00a9 ");
         contentPane.add(label2, "cell 1 2,alignx center,growx 0");
-        pack();
+        setSize(350, 140);
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
         button1.addActionListener(new ActionListener() {
@@ -63,7 +64,9 @@ public class LancementFrame extends JFrame {
     }
 
     public void nextFrame() {
-
+        MainFrame mainFrame = new MainFrame();
+        mainFrame.setVisible(true);
+        dispose();
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
