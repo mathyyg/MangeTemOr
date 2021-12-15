@@ -20,8 +20,4 @@ public class Garage {
         }
         throw new VehiculeIntrouvableException("Véhicule introuvable dans ce garage, suppresion annule");
     }
-
-
-
-
 }
