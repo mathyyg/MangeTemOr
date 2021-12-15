@@ -2,7 +2,7 @@ package java;
 
 import java.util.*;
 
-public class Course {
+public class Course{
 
     private double weight;
     private Salaree salaree;
@@ -11,7 +11,7 @@ public class Course {
     private ArrayList<GpsPoint> trajet;
     private int tempsParcours;
 
-    public Course(double w, Salaree salaree, Vehicule vehicule, int tempsParcours) throws CourseImpossibleException {
+    public Course(double w, Salaree salaree, Vehicule vehicule, int tempsParcours) throws CourseImpossibleException  {
         this.salaree = salaree;
         this.vehicule = vehicule;
         this.weight = w;
@@ -67,5 +67,4 @@ public class Course {
         return (int) (Math.round(AVERAGE_RADIUS_OF_EARTH * c));
 
     }
-
 }

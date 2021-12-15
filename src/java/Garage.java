@@ -15,9 +15,7 @@ public class Garage {
     }
 
     public void removeVehicule(Vehicule v) {
-        for(int i = 0; i<= this.garage.size(); i++) {
-            if (this.garage)
-        }
+        garage.remove(v);
     }
 
 
