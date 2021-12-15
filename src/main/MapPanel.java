@@ -103,15 +103,15 @@ public class MapPanel extends JPanel {
     }
 
 //     METHODE MAIN DESTINEE U N I Q U E M E N T AU DEBUG
-    public static void main(String[] args) {
-        JFrame test = new JFrame("test");
-        test.add(new MapPanel(), BorderLayout.CENTER);
-//        test.add(new JButton())
-        test.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        test.setPreferredSize(new Dimension(600, 400));
-
-        test.pack();
-        test.setVisible(true);
-    }
+//    public static void main(String[] args) {
+//        JFrame test = new JFrame("test");
+//        test.add(new MapPanel(), BorderLayout.CENTER);
+////        test.add(new JButton())
+//        test.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+//        test.setPreferredSize(new Dimension(600, 400));
+//
+//        test.pack();
+//        test.setVisible(true);
+//    }
 
 }
