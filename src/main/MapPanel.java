@@ -52,6 +52,7 @@ public class MapPanel extends JPanel {
     public static void main(String[] args) {
         JFrame test = new JFrame("test");
         test.add(new MapPanel());
+        test.add(new JButton())
         test.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         test.setPreferredSize(new Dimension(600, 400));
 
