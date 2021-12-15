@@ -14,8 +14,11 @@ public class Garage {
         this.garage.put(v, true);
     }
 
-    public void removeVehicule(Vehicule v) {
-        garage.remove(v);
+    public void removeVehicule(Vehicule v) throws VehiculeIntrouvableException  {
+        if(this.garage.containsKey(v)) {
+            this.garage.remove(v);
+        }
+        throw new VehiculeIntrouvableException("Véhicule introuvable dans ce garage, suppresion annule");
     }
 
 
