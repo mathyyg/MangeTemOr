@@ -1,15 +1,16 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Garage {
 
-    private ArrayList<Vehicule> garage;
+    private HashMap<Vehicule, Boolean> garage;
 
     public Garage() {
-        this.garage = new ArrayList<Vehicule>();
+        this.garage = new HashMap<>();
     }
 
     public void addVehicule(Vehicule v) {
-        this.garage.add(v);
+        this.garage.put(v, true);
     }
 
     public void removeVehicule(Vehicule v) {

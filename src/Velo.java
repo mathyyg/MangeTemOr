@@ -1,6 +1,6 @@
 import java.util.*;
 
-pubic class Velo extends Vehicule { //subclass Velo
+public class Velo extends Vehicule { //subclass Velo
 
     private double avgspeed;
     private double veloco2;
@@ -8,10 +8,11 @@ pubic class Velo extends Vehicule { //subclass Velo
     private double velousingPrice;
 
     public Velo(String s, double p, double sp, double up) {
+        super(s,p,sp,0,0,p/3000); // revoir pour la speed car dépend du cycliste
         this.veloco2 = 0;
         this.veloweight = 0;
         this.velousingPrice = p/30000;
-        super(s,p,sp,veloco2,veloweight,velousingPrice); // revoir pour la speed car dépend du cycliste
+
 
     }
 

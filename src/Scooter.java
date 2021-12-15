@@ -1,6 +1,6 @@
 import java.util.*;
 
-pubic class Scooter extends Vehicule { //subclass Scooter
+public class Scooter extends Vehicule { //subclass Scooter
 
     private double zyl;
     private double scooterconso;
@@ -9,14 +9,13 @@ pubic class Scooter extends Vehicule { //subclass Scooter
     private double scooterusingprice;
 
     public Scooter(String s, double p, double w, double cyl, double cons) {
+        super(s,p,0,0,w,0);
         this.zyl = cyl;
         this.scooterconso = cons;
         this.scooterspeed = 30 + (this.zyl/50);
         this.scooterco2 = (this.zyl/4);
         this.sp98price = 1.65;
         this.scooterusingprice = (p/20000) + (this.scooterconso * this.sp98price);
-        super(s,p,scooterspeed,scooterco2,w,scooterusingprice);
-
     }
 
     public double getScooterco2() {
