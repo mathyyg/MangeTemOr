@@ -1,4 +1,4 @@
-package java;
+package main;
 
 public class Velo extends Vehicule { //subclass java.Velo
 

@@ -2,7 +2,7 @@
  * Created by JFormDesigner on Wed Dec 15 13:39:10 CET 2021
  */
 
-package java;
+package main;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

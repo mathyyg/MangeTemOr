@@ -1,4 +1,4 @@
-package java;
+package main;
 
 public class Scooter extends Vehicule { //subclass java.Scooter
 
