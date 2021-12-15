@@ -20,4 +20,14 @@ public class Garage {
         }
         throw new VehiculeIntrouvableException("Véhicule introuvable dans ce garage, suppresion annule");
     }
+
+    public HashMap<Vehicule, Boolean> getGarage() {
+        return garage;
+    }
+
+
+
+    public void setGarage(HashMap<Vehicule, Boolean> garage) {
+        this.garage = garage;
+    }
 }

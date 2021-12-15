@@ -12,6 +12,7 @@ public abstract class Vehicule { //superclass vehicule
     protected double usingPrice;
     protected static double sp98price;
 
+
     public Vehicule(String s, double p, double sp, double c, double w, double up) {
         this.name = s;
         this.price = p;
@@ -19,7 +20,24 @@ public abstract class Vehicule { //superclass vehicule
         this.co2 = c;
         this.weight = w;
         this.usingPrice = up;
+
     }
+
+    public abstract double getConso();
+
+    public abstract double getZylindre();
+
+    public static double getSp98price() {
+        return sp98price;
+    }
+
+    public static void setSp98price(double sp98price) {
+        Vehicule.sp98price = sp98price;
+    }
+
+
+
+
 
     public String getName() {
         return name;
@@ -68,4 +86,6 @@ public abstract class Vehicule { //superclass vehicule
     public void setUsingPrice(double usingPrice) {
         this.usingPrice = usingPrice;
     }
+
+
 }

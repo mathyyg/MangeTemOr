@@ -15,8 +15,12 @@ import net.miginfocom.swing.*;
  * @author Les Infopotes
  */
 public class MainFrame extends JFrame {
-    public MainFrame() {
+    private Entreprise entreprise;
+
+    public MainFrame(Entreprise e) {
+        this.entreprise = e;
         initComponents();
+
     }
 
     private void initComponents() {
@@ -44,6 +48,20 @@ public class MainFrame extends JFrame {
         button2 = new JButton();
         button3 = new JButton();
         button4 = new JButton();
+        label5 = new JLabel();
+        textField1 = new JTextField();
+        label8 = new JLabel();
+        textField10 = new JTextField();
+        label11 = new JLabel();
+        textField12 = new JTextField();
+        label6 = new JLabel();
+        textField2 = new JTextField();
+        label9 = new JLabel();
+        textField9 = new JTextField();
+        label12 = new JLabel();
+        textField11 = new JTextField();
+        label10 = new JLabel();
+        textField8 = new JTextField();
         panel1 = new JPanel();
         scrollPane4 = new JScrollPane();
         list1 = new JList();
@@ -117,12 +135,12 @@ public class MainFrame extends JFrame {
 
             //======== panel3 ========
             {
-                panel3.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
-                border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER
-                , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font
-                .BOLD ,12 ), java. awt. Color. red) ,panel3. getBorder( )) ); panel3. addPropertyChangeListener (
-                new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072"
-                .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+                panel3.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder
+                (0,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax.swing.border
+                .TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt
+                .Color.red),panel3. getBorder()));panel3. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void
+                propertyChange(java.beans.PropertyChangeEvent e){if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException()
+                ;}});
                 panel3.setLayout(new MigLayout(
                     "hidemode 3",
                     // columns
@@ -145,7 +163,7 @@ public class MainFrame extends JFrame {
                     scrollPane1.setMaximumSize(new Dimension(500, 500));
 
                     //---- table1 ----
-                    table1.setPreferredSize(new Dimension(525, 40));
+                    table1.setPreferredSize(new Dimension(525, 200));
                     table1.setPreferredScrollableViewportSize(new Dimension(500, 300));
                     table1.setModel(new DefaultTableModel(
                         new Object[][] {
@@ -160,8 +178,8 @@ public class MainFrame extends JFrame {
                         cm.getColumn(1).setMinWidth(50);
                         cm.getColumn(2).setMinWidth(100);
                     }
-                    table1.setMaximumSize(new Dimension(550, 40));
-                    table1.setMinimumSize(new Dimension(450, 40));
+                    table1.setMaximumSize(new Dimension(550, 200));
+                    table1.setMinimumSize(new Dimension(450, 200));
                     scrollPane1.setViewportView(table1);
                 }
                 panel2.add(scrollPane1, BorderLayout.WEST);
@@ -216,26 +234,67 @@ public class MainFrame extends JFrame {
                         "[fill]" +
                         "[fill]" +
                         "[fill]" +
+                        "[fill]" +
+                        "[fill]" +
+                        "[fill]" +
                         "[fill]",
                         // rows
+                        "[]" +
+                        "[]" +
+                        "[]" +
                         "[]" +
                         "[]"));
 
                     //---- button1 ----
                     button1.setText("Ajouter V\u00e9lo");
-                    panel4.add(button1, "cell 1 0");
+                    panel4.add(button1, "cell 2 0");
 
                     //---- button2 ----
                     button2.setText("Supprimer V\u00e9lo");
-                    panel4.add(button2, "cell 4 0");
+                    panel4.add(button2, "cell 5 0");
 
                     //---- button3 ----
                     button3.setText("Ajouter Scooter");
-                    panel4.add(button3, "cell 11 0");
+                    panel4.add(button3, "cell 12 0");
 
                     //---- button4 ----
                     button4.setText("Supprimer Scooter");
-                    panel4.add(button4, "cell 15 0");
+                    panel4.add(button4, "cell 17 0");
+
+                    //---- label5 ----
+                    label5.setText("Marque");
+                    panel4.add(label5, "cell 1 2");
+                    panel4.add(textField1, "cell 2 2");
+
+                    //---- label8 ----
+                    label8.setText("Marque");
+                    panel4.add(label8, "cell 11 2");
+                    panel4.add(textField10, "cell 12 2");
+
+                    //---- label11 ----
+                    label11.setText("Masse");
+                    panel4.add(label11, "cell 16 2");
+                    panel4.add(textField12, "cell 17 2");
+
+                    //---- label6 ----
+                    label6.setText("Prix");
+                    panel4.add(label6, "cell 1 3");
+                    panel4.add(textField2, "cell 2 3");
+
+                    //---- label9 ----
+                    label9.setText("Prix");
+                    panel4.add(label9, "cell 11 3");
+                    panel4.add(textField9, "cell 12 3");
+
+                    //---- label12 ----
+                    label12.setText("Consomamtion");
+                    panel4.add(label12, "cell 16 3");
+                    panel4.add(textField11, "cell 17 3");
+
+                    //---- label10 ----
+                    label10.setText("Cylindr\u00e9e");
+                    panel4.add(label10, "cell 11 4");
+                    panel4.add(textField8, "cell 12 4");
                 }
                 panel2.add(panel4, BorderLayout.SOUTH);
             }
@@ -331,7 +390,7 @@ public class MainFrame extends JFrame {
             tabbedPane1.addTab("Salari\u00e9s", panel1);
         }
         contentPane.add(tabbedPane1, BorderLayout.NORTH);
-        setSize(870, 480);
+        setSize(870, 590);
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
 
@@ -346,26 +405,38 @@ public class MainFrame extends JFrame {
             }
         };
 
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultTableModel model = (DefaultTableModel) table1.getModel();
 
+                model.insertRow(0,new Object[]{ textField1.getText(), textField2.getText(), Double.valueOf(textField2.getText())/30000});
+            }
+        });
+
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultTableModel modelle = (DefaultTableModel) table2.getModel();
+                modelle.insertRow(0,new Object[]{ textField10.getText(), textField9.getText(), textField8.getText(),textField12.getText(),textField11.getText(),
+                        (Double.valueOf(textField9.getText())/20000) + (Vehicule.getSp98price()*Double.valueOf(textField11.getText())/100)});
+            }
+        });
         table1.setAutoCreateRowSorter(true);
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
-        model.insertRow(0, new Object[]{"Yamaha",500,200});
-        model.insertRow(1, new Object[]{"Yamaha",500,200});
-        model.insertRow(2, new Object[]{"Yamaha",500,200});
-        model.insertRow(3, new Object[]{"Yamaha",500,200});
-        model.insertRow(4, new Object[]{"Yamaha",500,200});
 
         table2.setAutoCreateRowSorter(true);
         DefaultTableModel modelle = (DefaultTableModel) table2.getModel();
-        modelle.insertRow(0,new Object[]{"yamama",500,50,150,8,200});
-        modelle.insertRow(1,new Object[]{"yamama",500,50,150,8,200});
-        modelle.insertRow(2,new Object[]{"yamama",500,50,150,8,200});
-        modelle.insertRow(3,new Object[]{"yamama",500,50,150,8,200});
-        modelle.insertRow(4,new Object[]{"yamama",500,50,150,8,200});
-        modelle.insertRow(5,new Object[]{"yamama",500,50,150,8,200});
 
+        for(Vehicule vehicule : entreprise.getGa().getGarage().keySet() ) {
+            if(vehicule.getClass() == Velo.class) {
+                model.insertRow(0,new Object[]{ vehicule.getName(), vehicule.price, vehicule.getUsingPrice()});
+            }
+            else {
+                modelle.insertRow(0,new Object[]{vehicule.getName(),vehicule.getPrice(),vehicule.getZylindre(),vehicule.getWeight(),vehicule.getConso(),vehicule.getUsingPrice()});
+            }
 
-
+        }
 
     }
 
@@ -393,6 +464,20 @@ public class MainFrame extends JFrame {
     private JButton button2;
     private JButton button3;
     private JButton button4;
+    private JLabel label5;
+    private JTextField textField1;
+    private JLabel label8;
+    private JTextField textField10;
+    private JLabel label11;
+    private JTextField textField12;
+    private JLabel label6;
+    private JTextField textField2;
+    private JLabel label9;
+    private JTextField textField9;
+    private JLabel label12;
+    private JTextField textField11;
+    private JLabel label10;
+    private JTextField textField8;
     private JPanel panel1;
     private JScrollPane scrollPane4;
     private JList list1;

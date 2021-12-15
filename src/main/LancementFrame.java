@@ -14,12 +14,16 @@ import net.miginfocom.swing.*;
  * @author Mathys Gagner
  */
 public class LancementFrame extends JFrame {
-    public LancementFrame() {
+    private Entreprise entreprise;
+
+    public LancementFrame(Entreprise e) {
         initComponents();
+        this.entreprise = e;
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        // Generated using JFormDesigner Evaluation license - Mateo Esteves
         button1 = new JButton();
         label1 = new JLabel();
         label2 = new JLabel();
@@ -64,12 +68,13 @@ public class LancementFrame extends JFrame {
     }
 
     public void nextFrame() {
-        MainFrame mainFrame = new MainFrame();
+        MainFrame mainFrame = new MainFrame(entreprise);
         mainFrame.setVisible(true);
         dispose();
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - Mateo Esteves
     private JButton button1;
     private JLabel label1;
     private JLabel label2;

@@ -2,27 +2,27 @@ package main;
 
 public class Scooter extends Vehicule { //subclass java.Scooter
 
-    private double zyl;
+
     private double scooterconso;
     private double scooterspeed;
     private double scooterco2;
     private double scooterusingprice;
+    private double zyl;
 
     public Scooter(String s, double p, double w, double cyl, double cons) {
         super(s,p,0,0,w,0);
         this.zyl = cyl;
         this.scooterconso = cons;
-        this.scooterspeed = 30 + (this.zyl/50);
-        this.scooterco2 = (this.zyl/4);
-        this.sp98price = 1.65;
-        this.scooterusingprice = (p/20000) + (this.scooterconso * this.sp98price);
+        this.scooterspeed = 30 + (cyl/50);
+        this.scooterco2 = (cyl/4);
+        this.scooterusingprice = (p/20000) + (this.scooterconso * Vehicule.getSp98price())/100;
     }
 
     public double getScooterco2() {
         return scooterco2;
     }
 
-    public double getScooterconso() {
+    public double getConso() {
         return scooterconso;
     }
 
@@ -34,19 +34,15 @@ public class Scooter extends Vehicule { //subclass java.Scooter
         return scooterusingprice;
     }
 
-    public double getSp98price() {
+    public static double getSp98price() {
         return sp98price;
     }
 
-    public double getZyl() {
+    public double getZylindre() {
         return zyl;
     }
 
-    public void setZyl(double zyl) {
-        this.zyl = zyl;
-    }
-
-    public void setScooterconso(double scooterconso) {
+    public void setConso(double scooterconso) {
         this.scooterconso = scooterconso;
     }
 
@@ -62,7 +58,7 @@ public class Scooter extends Vehicule { //subclass java.Scooter
         this.scooterusingprice = scooterusingprice;
     }
 
-    public void setSp98price(double sp98price) {
-        this.sp98price = sp98price;
+    public static void setSp98price(double sp98price) {
+        sp98price = sp98price;
     }
 }
