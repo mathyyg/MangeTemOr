@@ -7,7 +7,6 @@ pubic class Scooter extends Vehicule { //subclass Scooter
     private double scooterspeed;
     private double scooterco2;
     private double scooterusingprice;
-    private double sp98price;
 
     public Scooter(String s, double p, double w, double cyl, double cons) {
         this.zyl = cyl;

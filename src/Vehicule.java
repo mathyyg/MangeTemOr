@@ -1,6 +1,6 @@
 import java.util.*;
 
-pubic abstract class Vehicule { //superclass vehicule
+public abstract class Vehicule { //superclass vehicule
 
     protected String name;
     protected double price;
@@ -8,7 +8,7 @@ pubic abstract class Vehicule { //superclass vehicule
     protected double co2;
     protected double weight;
     protected double usingPrice;
-
+    private static double sp98price;
 
     public Vehicule(String s, double p, double sp, double c, double w, double up) {
         this.name = s;

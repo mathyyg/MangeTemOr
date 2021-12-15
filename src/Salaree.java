@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Salary {
+public class Salaree {
 
     private String name;
     private double weight;
@@ -8,38 +8,40 @@ public class Salary {
     private double utilityweight;
     private boolean isCyclist;
     private String cylcistType; //Expert, Average, Firsttime
-    private double cylistspeed;
+    private double cyclistspeed;
 
-    public Salary (String s, double w, double sal, boolean c) {
+    public Salaree (String s, double w, double sal, boolean c) throws Exception {
         this.name = s;
         this.weight = w;
         this.salaire = sal;
         this.isCyclist = c;
         this.utilityweight = weight/8;
-        if this.isCyclist {
+        if (this.isCyclist) {
             this.cylcistType = WhichTypeOfCyclist();
         }
     }
 
-    public void WhichTypeOfCyclist() throws Exception{
+    public String WhichTypeOfCyclist() throws Exception{
         Scanner entree = new Scanner(System.in);
         System.out.println("Veuillez saisir le type de cycliste (1 => Expert, 2 => Average, 3 => Firsttime \n");
         int res = entree.nextInt();
+        String typeC = "Average";
         if (res == 1) {
-            this.cylcistType = "Expert";
-            this.cylistspeed = 20;
+            typeC = "Expert";
+            this.cyclistspeed = 20;
         }
         else if (res == 2) {
-            this.cylcistType = "Average";
-            this.cylistspeed = 15;
+            typeC = "Average";
+            this.cyclistspeed = 15;
         }
         else   if (res == 3) {
-            this.cylcistType = "Firsttime";
-            this.cylistspeed = 10;
+            typeC = "Firsttime";
+            this.cyclistspeed = 10;
         }
         else {
             throw new Exception("Bon à un moment faut pas faire exprès non plus");
         }
+        return typeC;
     }
 
 
@@ -91,11 +93,11 @@ public class Salary {
         this.cylcistType = cylcistType;
     }
 
-    public double getCylistspeed() {
-        return cylistspeed;
+    public double getcyclistspeed() {
+        return cyclistspeed;
     }
 
-    public void setCylistspeed(double cylistspeed) {
-        this.cylistspeed = cylistspeed;
+    public void setcyclistspeed(double cyclistspeed) {
+        this.cyclistspeed = cyclistspeed;
     }
 }
