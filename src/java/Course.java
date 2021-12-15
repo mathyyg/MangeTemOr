@@ -2,7 +2,7 @@ package java;
 
 import java.util.*;
 
-public class Course{
+public class Course implements Comparable<Course>{
 
     private double weight;
     private Salaree salaree;
@@ -67,4 +67,18 @@ public class Course{
         return (int) (Math.round(AVERAGE_RADIUS_OF_EARTH * c));
 
     }
+
+
+    public int compareTo(Course c){
+        if (((this.getCo2Emis() > c.getCo2Emis()) && (this.getPrix() > c.getPrix())) ||
+                ((this.getCo2Emis() > c.getCo2Emis()) && (this.getPrix() == c.getPrix())) ||
+                ((this.getCo2Emis() == c.getCo2Emis()) && (this.getPrix() > c.getPrix()))) {
+            return -1;
+        }
+        if ((this.getCo2Emis() == c.getCo2Emis()) && (this.getPrix()) == c.getPrix()) {
+            return 0;
+        }
+        return 1;
+    }
+
 }
