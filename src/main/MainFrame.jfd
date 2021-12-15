@@ -1,0 +1,290 @@
+JFDML JFormDesigner: "7.0.5.0.404" Java: "11.0.13" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"$sizePolicy": 1
+			"title": "MangeTem'Or"
+			"defaultCloseOperation": 2
+			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
+				name: "tabbedPane1"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+					"$layoutConstraints": "hidemode 3"
+					"$columnConstraints": "[fill][fill]"
+					"$rowConstraints": "[][]"
+				} ) {
+					name: "panel3"
+				}, new FormLayoutConstraints( null ) {
+					"title": "Course"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+					name: "panel2"
+					add( new FormComponent( "com.jformdesigner.designer.wrapper.VSpacer" ) {
+						name: "vSpacer1"
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "Center"
+					} )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane1"
+						"preferredSize": new java.awt.Dimension( 350, 100 )
+						"maximumSize": new java.awt.Dimension( 350, 100 )
+						add( new FormComponent( "javax.swing.JTable" ) {
+							name: "table1"
+							"preferredSize": new java.awt.Dimension( 100, 20 )
+							"preferredScrollableViewportSize": new java.awt.Dimension( 350, 300 )
+							"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector {
+								add( new java.util.Vector {
+									add( null )
+									add( null )
+									add( null )
+								} )
+								add( new java.util.Vector {
+									add( null )
+									add( null )
+									add( null )
+								} )
+							}, new java.util.Vector {
+								add( "Marque" )
+								add( "Prix (€)" )
+								add( "Cout d'utilisation" )
+							}, new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+							}, new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+							}, new java.util.Vector {
+								add( new com.jformdesigner.model.SwingTableColumn( null, 0, 100, 0, true ) )
+								add( new com.jformdesigner.model.SwingTableColumn( null, 0, 50, 0, true ) )
+								add( new com.jformdesigner.model.SwingTableColumn( null, 0, 100, 0, true ) )
+							} )
+							"maximumSize": new java.awt.Dimension( 100, 40 )
+							"minimumSize": new java.awt.Dimension( 100, 20 )
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "West"
+					} )
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane2"
+						"preferredSize": new java.awt.Dimension( 500, 100 )
+						"maximumSize": new java.awt.Dimension( 500, 100 )
+						add( new FormComponent( "javax.swing.JTable" ) {
+							name: "table2"
+							"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector {
+								add( new java.util.Vector {
+									add( null )
+									add( null )
+									add( null )
+									add( null )
+									add( null )
+									add( null )
+								} )
+								add( new java.util.Vector {
+									add( null )
+									add( null )
+									add( null )
+									add( null )
+									add( null )
+									add( null )
+								} )
+							}, new java.util.Vector {
+								add( "Marque" )
+								add( "Prix (€)" )
+								add( "Cylindrée" )
+								add( "Masse" )
+								add( "Consommation" )
+								add( "Cout d'utilisation" )
+							}, new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							}, new java.util.Vector {
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+								add( null )
+							}, new java.util.Vector {
+								add( new com.jformdesigner.model.SwingTableColumn( null, 0, 100, 0, true ) )
+								add( new com.jformdesigner.model.SwingTableColumn( null, 0, 50, 0, true ) )
+								add( new com.jformdesigner.model.SwingTableColumn( null, 0, 50, 0, true ) )
+								add( new com.jformdesigner.model.SwingTableColumn( null, 0, 50, 0, true ) )
+								add( new com.jformdesigner.model.SwingTableColumn( null, 0, 100, 0, true ) )
+								add( new com.jformdesigner.model.SwingTableColumn( null, 0, 100, 0, true ) )
+							} )
+							"preferredScrollableViewportSize": new java.awt.Dimension( 500, 300 )
+							"maximumSize": new java.awt.Dimension( 525, 40 )
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "East"
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+						"$layoutConstraints": "hidemode 3,align center center"
+						"$columnConstraints": "[fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill]"
+						"$rowConstraints": "[][]"
+					} ) {
+						name: "panel4"
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "button1"
+							"text": "Ajouter Vélo"
+						}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+							"value": "cell 1 0"
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "button2"
+							"text": "Supprimer Vélo"
+						}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+							"value": "cell 4 0"
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "button3"
+							"text": "Ajouter Scooter"
+						}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+							"value": "cell 11 0"
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "button4"
+							"text": "Supprimer Scooter"
+						}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+							"value": "cell 15 0"
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "South"
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "Garage"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+					"$layoutConstraints": "hidemode 3,align center center"
+					"$columnConstraints": "[fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill]"
+					"$rowConstraints": "[][][][][][][][][][][][][][]"
+				} ) {
+					name: "panel1"
+					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+						name: "scrollPane4"
+						"preferredSize": new java.awt.Dimension( 250, 200 )
+						add( new FormComponent( "javax.swing.JList" ) {
+							name: "list1"
+							"preferredSize": new java.awt.Dimension( 200, 400 )
+							"maximumSize": new java.awt.Dimension( 200, 400 )
+						} )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 0 0 1 10,align center center,grow 0 0"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label1"
+						"text": "Nom"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 6 1"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "textField5"
+						"preferredSize": new java.awt.Dimension( 150, 25 )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 6 2"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label2"
+						"text": "Masse"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 6 4"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "textField6"
+						"preferredSize": new java.awt.Dimension( 150, 20 )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 6 5"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label3"
+						"text": "Salaire (€/h)"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 6 7"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "textField3"
+						"preferredSize": new java.awt.Dimension( 150, 25 )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 6 8"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label4"
+						"text": "Type de Cycliste"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 6 10"
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "textField4"
+						"preferredSize": new java.awt.Dimension( 150, 25 )
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 6 11"
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "button5"
+						"text": "Sauvegarder"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 17 13"
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "Salariés"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "North"
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar1"
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu1"
+					"text": "Fichier"
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem1"
+						"text": "Quitter"
+						"accelerator": static javax.swing.KeyStroke getKeyStroke( 82, 130, false )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu2"
+					"text": "Affichage"
+					add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+						name: "menu3"
+						"text": "Entreprise"
+						add( new FormComponent( "javax.swing.JMenuItem" ) {
+							name: "menuItem4"
+							"text": "Voir salariés"
+							"accelerator": static javax.swing.KeyStroke getKeyStroke( 69, 130, false )
+						} )
+						add( new FormComponent( "javax.swing.JMenuItem" ) {
+							name: "menuItem5"
+							"text": "Voir Garage"
+							"accelerator": static javax.swing.KeyStroke getKeyStroke( 71, 130, false )
+						} )
+						add( new FormComponent( "javax.swing.JMenuItem" ) {
+							name: "menuItem6"
+							"text": "Lancer une course"
+							"accelerator": static javax.swing.KeyStroke getKeyStroke( 76, 130, false )
+						} )
+					} )
+					add( new FormComponent( "javax.swing.JPopupMenu$Separator" ) {
+						name: "separator1"
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem2"
+						"text": "Liste des thèmes"
+						"accelerator": static javax.swing.KeyStroke getKeyStroke( 84, 130, false )
+					} )
+				} )
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 10, 130 )
+			"size": new java.awt.Dimension( 870, 480 )
+		} )
+	}
+}
