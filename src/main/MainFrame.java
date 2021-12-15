@@ -12,7 +12,7 @@ import net.miginfocom.swing.*;
 
 
 /**
- * @author Mateo Esteves
+ * @author Les Infopotes
  */
 public class MainFrame extends JFrame {
     public MainFrame() {
@@ -117,11 +117,12 @@ public class MainFrame extends JFrame {
 
             //======== panel3 ========
             {
-                panel3.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder( 0
-                , 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
-                , new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) ,
-                panel3. getBorder( )) ); panel3. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-                ) {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+                panel3.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
+                border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER
+                , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font
+                .BOLD ,12 ), java. awt. Color. red) ,panel3. getBorder( )) ); panel3. addPropertyChangeListener (
+                new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072"
+                .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
                 panel3.setLayout(new MigLayout(
                     "hidemode 3",
                     // columns
@@ -140,16 +141,14 @@ public class MainFrame extends JFrame {
 
                 //======== scrollPane1 ========
                 {
-                    scrollPane1.setPreferredSize(new Dimension(350, 100));
-                    scrollPane1.setMaximumSize(new Dimension(350, 100));
+                    scrollPane1.setPreferredSize(new Dimension(350, 200));
+                    scrollPane1.setMaximumSize(new Dimension(500, 500));
 
                     //---- table1 ----
-                    table1.setPreferredSize(new Dimension(100, 20));
-                    table1.setPreferredScrollableViewportSize(new Dimension(350, 300));
+                    table1.setPreferredSize(new Dimension(525, 40));
+                    table1.setPreferredScrollableViewportSize(new Dimension(500, 300));
                     table1.setModel(new DefaultTableModel(
                         new Object[][] {
-                            {null, null, null},
-                            {null, null, null},
                         },
                         new String[] {
                             "Marque", "Prix (\u20ac)", "Cout d'utilisation"
@@ -161,8 +160,8 @@ public class MainFrame extends JFrame {
                         cm.getColumn(1).setMinWidth(50);
                         cm.getColumn(2).setMinWidth(100);
                     }
-                    table1.setMaximumSize(new Dimension(100, 40));
-                    table1.setMinimumSize(new Dimension(100, 20));
+                    table1.setMaximumSize(new Dimension(550, 40));
+                    table1.setMinimumSize(new Dimension(450, 40));
                     scrollPane1.setViewportView(table1);
                 }
                 panel2.add(scrollPane1, BorderLayout.WEST);
@@ -175,8 +174,6 @@ public class MainFrame extends JFrame {
                     //---- table2 ----
                     table2.setModel(new DefaultTableModel(
                         new Object[][] {
-                            {null, null, null, null, null, null},
-                            {null, null, null, null, null, null},
                         },
                         new String[] {
                             "Marque", "Prix (\u20ac)", "Cylindr\u00e9e", "Masse", "Consommation", "Cout d'utilisation"
@@ -337,6 +334,39 @@ public class MainFrame extends JFrame {
         setSize(870, 480);
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
+
+
+
+
+        DefaultTableModel tableModel = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                //all cells false
+                return false;
+            }
+        };
+
+
+        table1.setAutoCreateRowSorter(true);
+        DefaultTableModel model = (DefaultTableModel) table1.getModel();
+        model.insertRow(0, new Object[]{"Yamaha",500,200});
+        model.insertRow(1, new Object[]{"Yamaha",500,200});
+        model.insertRow(2, new Object[]{"Yamaha",500,200});
+        model.insertRow(3, new Object[]{"Yamaha",500,200});
+        model.insertRow(4, new Object[]{"Yamaha",500,200});
+
+        table2.setAutoCreateRowSorter(true);
+        DefaultTableModel modelle = (DefaultTableModel) table2.getModel();
+        modelle.insertRow(0,new Object[]{"yamama",500,50,150,8,200});
+        modelle.insertRow(1,new Object[]{"yamama",500,50,150,8,200});
+        modelle.insertRow(2,new Object[]{"yamama",500,50,150,8,200});
+        modelle.insertRow(3,new Object[]{"yamama",500,50,150,8,200});
+        modelle.insertRow(4,new Object[]{"yamama",500,50,150,8,200});
+        modelle.insertRow(5,new Object[]{"yamama",500,50,150,8,200});
+
+
+
+
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables

@@ -28,24 +28,13 @@ new FormModel {
 					} )
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 						name: "scrollPane1"
-						"preferredSize": new java.awt.Dimension( 350, 100 )
-						"maximumSize": new java.awt.Dimension( 350, 100 )
+						"preferredSize": new java.awt.Dimension( 350, 200 )
+						"maximumSize": new java.awt.Dimension( 500, 500 )
 						add( new FormComponent( "javax.swing.JTable" ) {
 							name: "table1"
-							"preferredSize": new java.awt.Dimension( 100, 20 )
-							"preferredScrollableViewportSize": new java.awt.Dimension( 350, 300 )
-							"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector {
-								add( new java.util.Vector {
-									add( null )
-									add( null )
-									add( null )
-								} )
-								add( new java.util.Vector {
-									add( null )
-									add( null )
-									add( null )
-								} )
-							}, new java.util.Vector {
+							"preferredSize": new java.awt.Dimension( 525, 40 )
+							"preferredScrollableViewportSize": new java.awt.Dimension( 500, 300 )
+							"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector, new java.util.Vector {
 								add( "Marque" )
 								add( "Prix (€)" )
 								add( "Cout d'utilisation" )
@@ -62,8 +51,8 @@ new FormModel {
 								add( new com.jformdesigner.model.SwingTableColumn( null, 0, 50, 0, true ) )
 								add( new com.jformdesigner.model.SwingTableColumn( null, 0, 100, 0, true ) )
 							} )
-							"maximumSize": new java.awt.Dimension( 100, 40 )
-							"minimumSize": new java.awt.Dimension( 100, 20 )
+							"maximumSize": new java.awt.Dimension( 550, 40 )
+							"minimumSize": new java.awt.Dimension( 450, 40 )
 						} )
 					}, new FormLayoutConstraints( class java.lang.String ) {
 						"value": "West"
@@ -74,24 +63,7 @@ new FormModel {
 						"maximumSize": new java.awt.Dimension( 500, 100 )
 						add( new FormComponent( "javax.swing.JTable" ) {
 							name: "table2"
-							"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector {
-								add( new java.util.Vector {
-									add( null )
-									add( null )
-									add( null )
-									add( null )
-									add( null )
-									add( null )
-								} )
-								add( new java.util.Vector {
-									add( null )
-									add( null )
-									add( null )
-									add( null )
-									add( null )
-									add( null )
-								} )
-							}, new java.util.Vector {
+							"model": new com.jformdesigner.model.SwingTableModel( new java.util.Vector, new java.util.Vector {
 								add( "Marque" )
 								add( "Prix (€)" )
 								add( "Cylindrée" )
