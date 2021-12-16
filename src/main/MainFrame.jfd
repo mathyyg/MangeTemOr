@@ -28,6 +28,7 @@ new FormModel {
 							name: "scrollPane3"
 							add( new FormComponent( "javax.swing.JList" ) {
 								name: "listeCoursesEncours"
+								"preferredSize": new java.awt.Dimension( 200, 62 )
 							} )
 						}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 							"value": "cell 0 1"
@@ -357,8 +358,8 @@ new FormModel {
 				} )
 			}
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 10, 130 )
-			"size": new java.awt.Dimension( 870, 590 )
+			"location": new java.awt.Point( 10, 75 )
+			"size": new java.awt.Dimension( 870, 520 )
 		} )
 	}
 }

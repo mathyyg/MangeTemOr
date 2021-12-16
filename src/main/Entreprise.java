@@ -8,14 +8,11 @@ public class Entreprise {
     private Garage ga;
     private GpsPoint localisationEntrepot;
 
-
     public Entreprise() {
         this.employe = new ArrayList<Salaree>();
         this.ga = new Garage();
         this.localisationEntrepot = new GpsPoint(15.0 , 10.0);
     }
-
-
 
     public void addSalaree(Salaree s) {
         this.employe.add(s);
@@ -28,6 +25,10 @@ public class Entreprise {
 
     public ArrayList<Salaree> getEmploye() {
         return employe;
+    }
+
+    public void setVehiculeDispo(Vehicule v, boolean b) throws VehiculeIntrouvableException {
+        this.ga.setVehiculeDispo(v, b);
     }
 
     public void setEmploye(ArrayList<Salaree> employe) {

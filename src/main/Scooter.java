@@ -10,7 +10,7 @@ public class Scooter extends Vehicule { //subclass java.Scooter
     private double zyl;
 
     public Scooter(String s, double p, double w, double cyl, double cons) {
-        super(s,p,0,0,w,0);
+        super(s,p,0,cyl/4,w,0);
         this.zyl = cyl;
         this.scooterconso = cons;
         this.scooterspeed = 30 + (cyl/50);
@@ -26,7 +26,7 @@ public class Scooter extends Vehicule { //subclass java.Scooter
         return scooterconso;
     }
 
-    public double getScooterspeed() {
+    public double getSpeed() {
         return scooterspeed;
     }
 
@@ -61,4 +61,5 @@ public class Scooter extends Vehicule { //subclass java.Scooter
     public static void setSp98price(double sp98price) {
         sp98price = sp98price;
     }
+
 }

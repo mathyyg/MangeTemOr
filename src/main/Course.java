@@ -1,5 +1,7 @@
 package main;
 
+import org.jxmapviewer.viewer.Waypoint;
+
 import java.util.*;
 
 public class Course implements Comparable<Course>{
@@ -10,10 +12,12 @@ public class Course implements Comparable<Course>{
     private double chargeutile;
     private ArrayList<GpsPoint> trajet;
     private int tempsParcours;
+    private int nbiterations = 0;
 
     public Course(double w, Salaree salaree, Vehicule vehicule) throws CourseImpossibleException  {
         this.salaree = salaree;
         this.vehicule = vehicule;
+
         this.weight = w;
         this.trajet = new ArrayList<>();
         trajet.add(new GpsPoint(47.23813941987686, -1.5541809153407529));
@@ -34,8 +38,50 @@ public class Course implements Comparable<Course>{
         }
     }
 
+    public void setTrajet(ArrayList<Waypoint> points ){
+        for (Waypoint wp : points) {
+            trajet.add(new GpsPoint(wp.getPosition().getLatitude(), wp.getPosition().getLongitude()));
+        }
+//        if(!points.isEmpty()) {
+//            trajet.add(new GpsPoint(47.23813941987686, -1.5541809153407529));
+//        }
+    }
+
+    public double getSpeed() {
+        if(salaree.isCyclist()) {
+            return salaree.getcyclistspeed();
+        }
+        else {
+            return vehicule.getSpeed();
+        }
+    }
+
+    public Vehicule getVehicule() {
+        return vehicule;
+    }
+
+    public void setVehicule(Vehicule vehicule) {
+        this.vehicule = vehicule;
+    }
+
+    public Salaree getSalaree() {
+        return salaree;
+    }
+
+    public void setSalaree(Salaree salaree) {
+        this.salaree = salaree;
+    }
+
+    public int getNbiterations() {
+        return nbiterations;
+    }
+
+    public void addIteration() {
+        this.nbiterations++;
+    }
+
     public double getCo2Emis() {
-        return getDistanceKm()*2;
+        return this.getVehicule().getCo2() * getDistanceKm()*2;
     }
 
     public double getPrix() {
@@ -45,7 +91,8 @@ public class Course implements Comparable<Course>{
     public double getDistanceKm() {
         GpsPoint g1 = trajet.get(0);
         GpsPoint g2 = trajet.get(trajet.size()-1);
-        return this.vehicule.getCo2() * calculateDistance(g1.getLatittude(), g1.getLongitude(), g2.getLatittude(), g2.getLongitude());
+//        System.out.println("Vitesse: "+this.vehicule.getCo2() * calculateDistance(g1.getLatittude(), g1.getLongitude(), g2.getLatittude(), g2.getLongitude()));
+        return calculateDistance(g1.getLatittude(), g1.getLongitude(), g2.getLatittude(), g2.getLongitude());
     }
 
     // fonction calcul distance GPS

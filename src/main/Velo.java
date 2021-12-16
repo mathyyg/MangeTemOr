@@ -39,4 +39,9 @@ public class Velo extends Vehicule { //subclass java.Velo
     public double getZylindre() {
         return 0;
     }
+
+    @Override
+    public double getSpeed() {
+        return 0;
+    }
 }

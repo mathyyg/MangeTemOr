@@ -1,7 +1,5 @@
 package main;
 
-import java.util.Scanner;
-
 public class Salaree {
 
     private String name;
@@ -9,35 +7,32 @@ public class Salaree {
     private double salaire;
     private double utilityweight;
     private boolean isCyclist;
-    private String cylcistType; //Expert, Average, Firsttime
+    private TypeOfCyclist cylcistType; //Expert, Average, Firsttime
     private double cyclistspeed;
 
-    public Salaree (String s, double w, double sal, boolean c) throws Exception {
+    public Salaree (String s, double w, double sal, boolean c, TypeOfCyclist typeOfCyclist) throws Exception {
         this.name = s;
         this.weight = w;
         this.salaire = sal;
         this.isCyclist = c;
         this.utilityweight = weight/8;
         if (this.isCyclist) {
-            this.cylcistType = WhichTypeOfCyclist();
+            this.cylcistType = WhichTypeOfCyclist(typeOfCyclist);
         }
     }
 
-    public String WhichTypeOfCyclist() throws Exception{
-        Scanner entree = new Scanner(System.in);
-        System.out.println("Veuillez saisir le type de cycliste (1 => Expert, 2 => Average, 3 => Firsttime \n");
-        int res = entree.nextInt();
-        String typeC = "Average";
-        if (res == 1) {
-            typeC = "Expert";
+    public TypeOfCyclist WhichTypeOfCyclist(TypeOfCyclist typeOfCyclist) throws Exception{
+        TypeOfCyclist typeC = TypeOfCyclist.AVERAGE;
+        if (typeOfCyclist == TypeOfCyclist.EXPERT) {
+            typeC = TypeOfCyclist.EXPERT;
             this.cyclistspeed = 20;
         }
-        else if (res == 2) {
-            typeC = "Average";
+        else if (typeOfCyclist == TypeOfCyclist.AVERAGE) {
+            typeC = TypeOfCyclist.AVERAGE;
             this.cyclistspeed = 15;
         }
-        else   if (res == 3) {
-            typeC = "Firsttime";
+        else if (typeOfCyclist == TypeOfCyclist.FIRSTTIME) {
+            typeC = TypeOfCyclist.FIRSTTIME;
             this.cyclistspeed = 10;
         }
         else {
@@ -87,11 +82,11 @@ public class Salaree {
         isCyclist = cyclist;
     }
 
-    public String getCylcistType() {
+    public TypeOfCyclist getCylcistType() {
         return cylcistType;
     }
 
-    public void setCylcistType(String cylcistType) {
+    public void setCylcistType(TypeOfCyclist cylcistType) {
         this.cylcistType = cylcistType;
     }
 

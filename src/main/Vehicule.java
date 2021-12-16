@@ -55,9 +55,7 @@ public abstract class Vehicule { //superclass vehicule
         this.price = price;
     }
 
-    public double getSpeed() {
-        return speed;
-    }
+    public abstract double getSpeed();
 
     public void setSpeed(double speed) {
         this.speed = speed;

@@ -108,11 +108,18 @@ public class MapPanel extends JPanel {
         map.getMainMap().setOverlayPainter(painter);
     }
 
-    public void reinitMap() {
+    public ArrayList<Waypoint> reinitMap() {
+        ArrayList<Waypoint> res = new ArrayList<>();
+        for(Waypoint waypoint : waypoints) {
+            res.add(waypoint);
+        }
+
         waypoints = new LinkedHashSet<>();
         WaypointPainter<Waypoint> waypointPainter = new WaypointPainter<>();
         waypointPainter.setWaypoints(waypoints);
         map.getMainMap().setOverlayPainter(waypointPainter);
+
+        return res;
     }
 
 //     METHODE MAIN DESTINEE U N I Q U E M E N T AU DEBUG

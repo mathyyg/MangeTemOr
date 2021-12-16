@@ -7,6 +7,7 @@ package main;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.EventListener;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
@@ -14,6 +15,7 @@ import javax.swing.*;
 import javax.swing.table.*;
 import net.miginfocom.swing.*;
 import org.jxmapviewer.viewer.DefaultWaypoint;
+import org.jxmapviewer.viewer.Waypoint;
 
 
 /**
@@ -22,6 +24,7 @@ import org.jxmapviewer.viewer.DefaultWaypoint;
 public class MainFrame extends JFrame {
     private Entreprise entreprise;
     private HashMap<String, Course> courses = new HashMap<>();
+    private CoursesPanel coursesPanel = new CoursesPanel();
     private static int countCourses =0;
 
     public MainFrame(Entreprise e) {
@@ -164,6 +167,9 @@ public class MainFrame extends JFrame {
 
                     //======== scrollPane3 ========
                     {
+
+                        //---- listeCoursesEncours ----
+                        listeCoursesEncours.setPreferredSize(new Dimension(200, 62));
                         scrollPane3.setViewportView(listeCoursesEncours);
                     }
                     panel5.add(scrollPane3, "cell 0 1");
@@ -414,11 +420,14 @@ public class MainFrame extends JFrame {
             tabbedPane1.addTab("Salari\u00e9s", panel1);
         }
         contentPane.add(tabbedPane1, BorderLayout.NORTH);
-        setSize(870, 590);
+        setSize(870, 520);
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
-        CoursesPanel coursesPanel = new CoursesPanel();
-        this.panel3.add(coursesPanel, BorderLayout.WEST);
+
+        this.panel3.add(coursesPanel, BorderLayout.CENTER);
+
+        initComboVehicule();
+        initComboEmploye();
 
         DefaultTableModel tableModel = new DefaultTableModel() {
             @Override
@@ -470,6 +479,8 @@ public class MainFrame extends JFrame {
         coursesPanel.newCoursePanel1.buttonNewCourse.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                coursesPanel.etatCourse.setEnabled(false);
+                coursesPanel.nextIte.setEnabled(false);
                 coursesPanel.newCoursePanel1.mapPanel1.enableMarqueurCreation(true);
                 coursesPanel.newCoursePanel1.buttonNewCourse.setEnabled(false);
                 coursesPanel.newCoursePanel1.buttonAnnuler.setEnabled(true);
@@ -477,6 +488,8 @@ public class MainFrame extends JFrame {
                 coursesPanel.newCoursePanel1.buttonValider.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
+                        coursesPanel.etatCourse.setEnabled(true);
+                        coursesPanel.nextIte.setEnabled(true);
                         coursesPanel.newCoursePanel1.buttonValider.setEnabled(false);
                         for(ActionListener el : coursesPanel.newCoursePanel1.buttonValider.getActionListeners()) {
                             coursesPanel.newCoursePanel1.buttonValider.removeActionListener(el);
@@ -488,12 +501,18 @@ public class MainFrame extends JFrame {
                         coursesPanel.newCoursePanel1.buttonReinitialiser.setEnabled(false);
                         coursesPanel.newCoursePanel1.buttonAnnuler.setEnabled(false);
                         coursesPanel.newCoursePanel1.buttonNewCourse.setEnabled(true);
-                        coursesPanel.newCoursePanel1.mapPanel1.reinitMap();
+                        ArrayList<Waypoint> trajetCourse = coursesPanel.newCoursePanel1.mapPanel1.reinitMap();
                         try {
-                            courses.put("Course #"+countCourses,new Course(5, null, null));
+                            Course newCourse = new Course(5, getEmpSelect(), getVehSelect());
+                            newCourse.setTrajet(trajetCourse);
+                            courses.put("Course #"+countCourses,newCourse);
+                            entreprise.setVehiculeDispo(getVehSelect(), false);
                             countCourses++;
+                            initListeCourses();
+                            initComboVehicule();
+                            initComboEmploye();
 
-                        } catch (CourseImpossibleException ex) {
+                        } catch (CourseImpossibleException | VehiculeIntrouvableException ex) {
                             ex.printStackTrace();
                         }
                     } // à faire enableMarqueurCreation false + reinit false + newcourse true + champs employe/vehicule
@@ -501,6 +520,8 @@ public class MainFrame extends JFrame {
                 coursesPanel.newCoursePanel1.buttonAnnuler.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
+                        coursesPanel.etatCourse.setEnabled(true);
+                        coursesPanel.nextIte.setEnabled(true);
                         coursesPanel.newCoursePanel1.buttonAnnuler.setEnabled(false);
                         coursesPanel.newCoursePanel1.mapPanel1.reinitMap();
                         coursesPanel.newCoursePanel1.buttonValider.setEnabled(false);
@@ -526,7 +547,59 @@ public class MainFrame extends JFrame {
                 coursesPanel.newCoursePanel1.buttonValider.setEnabled(true);
             }
         });
+
+        coursesPanel.etatCourse.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Course course = courses.get(listeCoursesEncours.getSelectedValue().toString());
+                EtatCourseFrame etatCourseFrame = new EtatCourseFrame(course, listeCoursesEncours.getSelectedValue().toString());
+                etatCourseFrame.setVisible(true);
+            }
+        });
     }
+
+    private void initListeCourses() {
+        DefaultListModel listModel = new DefaultListModel();
+        for(String cid : this.courses.keySet()) {
+            listModel.addElement(cid);
+        }
+        this.listeCoursesEncours.setModel(listModel);
+    }
+
+    public void initComboEmploye() {
+        coursesPanel.comboEmploye.removeAllItems();
+        for(Salaree sa : entreprise.getEmploye()) {
+            coursesPanel.comboEmploye.addItem(sa.getName());
+        }
+    }
+
+    public void initComboVehicule() {
+        coursesPanel.comboVehicule.removeAllItems();
+        for(Vehicule ve : entreprise.getGa().getVehiculesDispo()) {
+            coursesPanel.comboVehicule.addItem(ve.getName());
+        }
+    }
+
+    public Vehicule getVehSelect() {
+        String name = coursesPanel.comboVehicule.getSelectedItem().toString();
+        for(Vehicule ve : entreprise.getGa().getVehiculesDispo()) {
+            if(ve.getName() == name) {
+                return ve;
+            }
+        }
+        return null;
+    }
+
+    public Salaree getEmpSelect() {
+        String name = coursesPanel.comboEmploye.getSelectedItem().toString();
+        for(Salaree sa : entreprise.getEmploye()) {
+            if(sa.getName() == name) {
+                return sa;
+            }
+        }
+        return null;
+    }
+
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JMenuBar menuBar1;
     private JMenu menu1;
