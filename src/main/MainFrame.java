@@ -30,7 +30,6 @@ public class MainFrame extends JFrame {
 
     }
 
-
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         menuBar1 = new JMenuBar();
@@ -420,7 +419,6 @@ public class MainFrame extends JFrame {
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
         CoursesPanel coursesPanel = new CoursesPanel();
         this.panel3.add(coursesPanel, BorderLayout.WEST);
-
 
         DefaultTableModel tableModel = new DefaultTableModel() {
             @Override
