@@ -7,6 +7,9 @@ new FormModel {
 			name: "this"
 			add( new FormComponent( "main.NewCoursePanel" ) {
 				name: "newCoursePanel1"
+				auxiliary() {
+					"JavaCodeGenerator.variableModifiers": 1
+				}
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "Center"
 			} )
@@ -16,15 +19,24 @@ new FormModel {
 				"$rowConstraints": "[]"
 			} ) {
 				name: "panel1"
+				auxiliary() {
+					"JavaCodeGenerator.variableModifiers": 1
+				}
 				add( new FormComponent( "javax.swing.JButton" ) {
-					name: "button1"
+					name: "nextIte"
 					"text": "Prochaine itération (+1 minute)"
+					auxiliary() {
+						"JavaCodeGenerator.variableModifiers": 1
+					}
 				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 					"value": "cell 0 0"
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
-					name: "button2"
+					name: "etatCourse"
 					"text": "État de la course"
+					auxiliary() {
+						"JavaCodeGenerator.variableModifiers": 1
+					}
 				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 					"value": "cell 1 0"
 				} )
@@ -33,7 +45,7 @@ new FormModel {
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 125, 140 )
-			"size": new java.awt.Dimension( 390, 300 )
+			"size": new java.awt.Dimension( 530, 300 )
 		} )
 	}
 }

@@ -11,11 +11,10 @@ public class Course implements Comparable<Course>{
     private ArrayList<GpsPoint> trajet;
     private int tempsParcours;
 
-    public Course(double w, Salaree salaree, Vehicule vehicule, int tempsParcours) throws CourseImpossibleException  {
+    public Course(double w, Salaree salaree, Vehicule vehicule) throws CourseImpossibleException  {
         this.salaree = salaree;
         this.vehicule = vehicule;
         this.weight = w;
-        this.tempsParcours = tempsParcours;
         this.trajet = new ArrayList<>();
         trajet.add(new GpsPoint(47.23813941987686, -1.5541809153407529));
         this.chargeutile = maxChargeUtile();

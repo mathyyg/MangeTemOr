@@ -35,15 +35,13 @@ public class MapPanel extends JPanel {
 //            WaypointPainter<DefaultWaypoint> painter = new WaypointPainter<>();
 //            painter.setWaypoints(waypoints);
 //            map.getMainMap().setOverlayPainter(painter);
-            setMap(waypoints);
-
+            setMap();
 
             System.out.println(" mouse  x coordinates =" + me_src.getMousePosition().getX() + "/ mouse y coordinates =" + me_src.getMousePosition().getY());
             System.out.println("CONVERTING MOUSE COORDINATES TO geoposition ones =====> latitude :"
                     + me_src.convertPointToGeoPosition(me.getPoint()).getLatitude() + "  longitude :"
                     + me_src.convertPointToGeoPosition(me.getPoint()).getLongitude());
         }
-
         public void mousePressed(MouseEvent e) {} public void mouseReleased(MouseEvent e) {} public void mouseEntered(MouseEvent e) {} public void mouseExited(MouseEvent e) {}
     };
 
@@ -69,7 +67,7 @@ public class MapPanel extends JPanel {
 //        WaypointPainter<DefaultWaypoint> painter = new WaypointPainter<>();
 //        painter.setWaypoints(waypoints);
 //        map.getMainMap().setOverlayPainter(painter);
-        setMap(waypoints);
+        setMap();
 
         /** Interactions  avec le bouton de la souris*/
 //        MouseInputListener mia = new PanMouseInputListener(map);
@@ -82,11 +80,19 @@ public class MapPanel extends JPanel {
         /** Affichage de la carte */
         map.setAddressLocation(Nantes_Focus);
         map.setZoom(4);
-        map.getMainMap().addMouseListener(addMarqueur);
         this.add(map);
     }
 
-    private void setMap(LinkedHashSet<DefaultWaypoint> waypoints) {
+    public void enableMarqueurCreation(boolean e) {
+        if(e) {
+            map.getMainMap().addMouseListener(addMarqueur);
+        }
+        else {
+            map.getMainMap().removeMouseListener(addMarqueur);
+        }
+    }
+
+    private void setMap() {
         ArrayList<GeoPosition> track = new ArrayList<>();
         for(DefaultWaypoint waypoint : waypoints) {
             track.add(waypoint.getPosition());
@@ -100,6 +106,13 @@ public class MapPanel extends JPanel {
 
         CompoundPainter<JXMapViewer> painter = new CompoundPainter<JXMapViewer>(painters);
         map.getMainMap().setOverlayPainter(painter);
+    }
+
+    public void reinitMap() {
+        waypoints = new LinkedHashSet<>();
+        WaypointPainter<Waypoint> waypointPainter = new WaypointPainter<>();
+        waypointPainter.setWaypoints(waypoints);
+        map.getMainMap().setOverlayPainter(waypointPainter);
     }
 
 //     METHODE MAIN DESTINEE U N I Q U E M E N T AU DEBUG

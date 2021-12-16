@@ -20,8 +20,8 @@ public class CoursesPanel extends JPanel {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         newCoursePanel1 = new NewCoursePanel();
         panel1 = new JPanel();
-        button1 = new JButton();
-        button2 = new JButton();
+        nextIte = new JButton();
+        etatCourse = new JButton();
 
         //======== this ========
         setLayout(new BorderLayout());
@@ -37,22 +37,22 @@ public class CoursesPanel extends JPanel {
                 // rows
                 "[]"));
 
-            //---- button1 ----
-            button1.setText("Prochaine it\u00e9ration (+1 minute)");
-            panel1.add(button1, "cell 0 0");
+            //---- nextIte ----
+            nextIte.setText("Prochaine it\u00e9ration (+1 minute)");
+            panel1.add(nextIte, "cell 0 0");
 
-            //---- button2 ----
-            button2.setText("\u00c9tat de la course");
-            panel1.add(button2, "cell 1 0");
+            //---- etatCourse ----
+            etatCourse.setText("\u00c9tat de la course");
+            panel1.add(etatCourse, "cell 1 0");
         }
         add(panel1, BorderLayout.SOUTH);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private NewCoursePanel newCoursePanel1;
-    private JPanel panel1;
-    private JButton button1;
-    private JButton button2;
+    public NewCoursePanel newCoursePanel1;
+    public JPanel panel1;
+    public JButton nextIte;
+    public JButton etatCourse;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

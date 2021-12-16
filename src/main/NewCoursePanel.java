@@ -23,6 +23,7 @@ public class NewCoursePanel extends JPanel {
         buttonNewCourse = new JButton();
         buttonValider = new JButton();
         buttonReinitialiser = new JButton();
+        buttonAnnuler = new JButton();
 
         //======== this ========
         setLayout(new BorderLayout());
@@ -33,6 +34,7 @@ public class NewCoursePanel extends JPanel {
             panel1.setLayout(new MigLayout(
                 "hidemode 3",
                 // columns
+                "[fill]" +
                 "[fill]" +
                 "[fill]" +
                 "[fill]",
@@ -50,6 +52,11 @@ public class NewCoursePanel extends JPanel {
             //---- buttonReinitialiser ----
             buttonReinitialiser.setText("R\u00e9initialiser le trajet");
             panel1.add(buttonReinitialiser, "cell 2 0");
+
+            //---- buttonAnnuler ----
+            buttonAnnuler.setText("Annuler");
+            buttonAnnuler.setEnabled(false);
+            panel1.add(buttonAnnuler, "cell 3 0");
         }
         add(panel1, BorderLayout.SOUTH);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -63,5 +70,6 @@ public class NewCoursePanel extends JPanel {
     public JButton buttonNewCourse;
     public JButton buttonValider;
     public JButton buttonReinitialiser;
+    public JButton buttonAnnuler;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

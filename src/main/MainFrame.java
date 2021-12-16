@@ -7,9 +7,13 @@ package main;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.ResultSet;
+import java.util.EventListener;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
 import javax.swing.*;
 import javax.swing.table.*;
 import net.miginfocom.swing.*;
+import org.jxmapviewer.viewer.DefaultWaypoint;
 
 
 /**
@@ -17,6 +21,8 @@ import net.miginfocom.swing.*;
  */
 public class MainFrame extends JFrame {
     private Entreprise entreprise;
+    private HashMap<String, Course> courses = new HashMap<>();
+    private static int countCourses =0;
 
     public MainFrame(Entreprise e) {
         this.entreprise = e;
@@ -24,9 +30,9 @@ public class MainFrame extends JFrame {
 
     }
 
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Mateo Esteves
         menuBar1 = new JMenuBar();
         menu1 = new JMenu();
         menuItem1 = new JMenuItem();
@@ -38,6 +44,10 @@ public class MainFrame extends JFrame {
         menuItem2 = new JMenuItem();
         tabbedPane1 = new JTabbedPane();
         panel3 = new JPanel();
+        panel5 = new JPanel();
+        label7 = new JLabel();
+        scrollPane3 = new JScrollPane();
+        listeCoursesEncours = new JList();
         panel2 = new JPanel();
         vSpacer1 = new JPanel(null);
         scrollPane1 = new JScrollPane();
@@ -137,21 +147,29 @@ public class MainFrame extends JFrame {
 
             //======== panel3 ========
             {
-                panel3.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new
-                javax.swing.border.EmptyBorder(0,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax
-                .swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java
-                .awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt
-                .Color.red),panel3. getBorder()));panel3. addPropertyChangeListener(new java.beans.
-                PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062ord\u0065r".
-                equals(e.getPropertyName()))throw new RuntimeException();}});
-                panel3.setLayout(new MigLayout(
-                    "hidemode 3",
-                    // columns
-                    "[fill]" +
-                    "[fill]",
-                    // rows
-                    "[]" +
-                    "[]"));
+                panel3.setLayout(new BorderLayout());
+
+                //======== panel5 ========
+                {
+                    panel5.setLayout(new MigLayout(
+                        "hidemode 3",
+                        // columns
+                        "[fill]",
+                        // rows
+                        "[]" +
+                        "[]"));
+
+                    //---- label7 ----
+                    label7.setText("Courses en cours");
+                    panel5.add(label7, "cell 0 0");
+
+                    //======== scrollPane3 ========
+                    {
+                        scrollPane3.setViewportView(listeCoursesEncours);
+                    }
+                    panel5.add(scrollPane3, "cell 0 1");
+                }
+                panel3.add(panel5, BorderLayout.EAST);
             }
             tabbedPane1.addTab("Course", panel3);
 
@@ -400,8 +418,8 @@ public class MainFrame extends JFrame {
         setSize(870, 590);
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
-
-
+        CoursesPanel coursesPanel = new CoursesPanel();
+        this.panel3.add(coursesPanel, BorderLayout.WEST);
 
 
         DefaultTableModel tableModel = new DefaultTableModel() {
@@ -449,17 +467,69 @@ public class MainFrame extends JFrame {
         for(Salaree salaree : entreprise.getEmploye()) {
             listModel.addElement(salaree.getName());
         }
-
-
-
         list1.setModel(listModel);
 
+        coursesPanel.newCoursePanel1.buttonNewCourse.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                coursesPanel.newCoursePanel1.mapPanel1.enableMarqueurCreation(true);
+                coursesPanel.newCoursePanel1.buttonNewCourse.setEnabled(false);
+                coursesPanel.newCoursePanel1.buttonAnnuler.setEnabled(true);
+                coursesPanel.newCoursePanel1.buttonReinitialiser.setEnabled(true);
+                coursesPanel.newCoursePanel1.buttonValider.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        coursesPanel.newCoursePanel1.buttonValider.setEnabled(false);
+                        for(ActionListener el : coursesPanel.newCoursePanel1.buttonValider.getActionListeners()) {
+                            coursesPanel.newCoursePanel1.buttonValider.removeActionListener(el);
+                        }
+                        for(ActionListener el : coursesPanel.newCoursePanel1.buttonReinitialiser.getActionListeners()) {
+                            coursesPanel.newCoursePanel1.buttonValider.removeActionListener(el);
+                        }
+                        coursesPanel.newCoursePanel1.mapPanel1.enableMarqueurCreation(false);
+                        coursesPanel.newCoursePanel1.buttonReinitialiser.setEnabled(false);
+                        coursesPanel.newCoursePanel1.buttonAnnuler.setEnabled(false);
+                        coursesPanel.newCoursePanel1.buttonNewCourse.setEnabled(true);
+                        coursesPanel.newCoursePanel1.mapPanel1.reinitMap();
+                        try {
+                            courses.put("Course #"+countCourses,new Course(5, null, null));
+                            countCourses++;
 
-
+                        } catch (CourseImpossibleException ex) {
+                            ex.printStackTrace();
+                        }
+                    } // à faire enableMarqueurCreation false + reinit false + newcourse true + champs employe/vehicule
+                });
+                coursesPanel.newCoursePanel1.buttonAnnuler.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        coursesPanel.newCoursePanel1.buttonAnnuler.setEnabled(false);
+                        coursesPanel.newCoursePanel1.mapPanel1.reinitMap();
+                        coursesPanel.newCoursePanel1.buttonValider.setEnabled(false);
+                        for(ActionListener el : coursesPanel.newCoursePanel1.buttonValider.getActionListeners()) {
+                            coursesPanel.newCoursePanel1.buttonValider.removeActionListener(el);
+                        }
+                        for(ActionListener el : coursesPanel.newCoursePanel1.buttonReinitialiser.getActionListeners()) {
+                            coursesPanel.newCoursePanel1.buttonValider.removeActionListener(el);
+                        }
+                        coursesPanel.newCoursePanel1.mapPanel1.enableMarqueurCreation(false);
+                        coursesPanel.newCoursePanel1.buttonReinitialiser.setEnabled(false);
+                        coursesPanel.newCoursePanel1.buttonAnnuler.setEnabled(false);
+                        coursesPanel.newCoursePanel1.buttonNewCourse.setEnabled(true);
+                        coursesPanel.newCoursePanel1.mapPanel1.reinitMap();
+                    }
+                });
+                coursesPanel.newCoursePanel1.buttonReinitialiser.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        coursesPanel.newCoursePanel1.mapPanel1.reinitMap();
+                    }
+                });
+                coursesPanel.newCoursePanel1.buttonValider.setEnabled(true);
+            }
+        });
     }
-
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Mateo Esteves
     private JMenuBar menuBar1;
     private JMenu menu1;
     private JMenuItem menuItem1;
@@ -471,6 +541,10 @@ public class MainFrame extends JFrame {
     private JMenuItem menuItem2;
     private JTabbedPane tabbedPane1;
     private JPanel panel3;
+    private JPanel panel5;
+    private JLabel label7;
+    private JScrollPane scrollPane3;
+    private JList listeCoursesEncours;
     private JPanel panel2;
     private JPanel vSpacer1;
     private JScrollPane scrollPane1;
