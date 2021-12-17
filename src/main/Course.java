@@ -36,9 +36,13 @@ public class Course implements Comparable<Course>{
         if(this.chargeutile < this.weight) {
             throw new CourseImpossibleException("java.Course impossible: charge utilise supérieure au poids");
         }
+        else if (getDistanceKm() / getSpeed() * 60 > 60) {
+            throw new CourseImpossibleException("Course impossible: temps de parcours supérieur à 1h (60 minutes)");
+        }
     }
 
     public void setTrajet(ArrayList<Waypoint> points ){
+        points.remove(0);
         for (Waypoint wp : points) {
             trajet.add(new GpsPoint(wp.getPosition().getLatitude(), wp.getPosition().getLongitude()));
         }
@@ -113,6 +117,23 @@ public class Course implements Comparable<Course>{
         return (int) (Math.round(AVERAGE_RADIUS_OF_EARTH * c));
     }
 
+    private int getProgress() {
+        double tempsRestant = getDistanceKm() / getSpeed() * 60;
+        double distanceRestante = getDistanceKm();
+        distanceRestante -= getSpeed() * getNbiterations()/60;
+        tempsRestant -= distanceRestante / getSpeed() * 60;
+        return (int) (100- (distanceRestante/getDistanceKm() * 100));
+    }
+
+    public boolean estFinie() {
+        if(getNbiterations()==0) {
+            return false;
+        }
+        else if(getProgress() >=100) {
+            return true;
+        }
+        return false;
+    }
 
     public int compareTo(Course c){
         if (((this.getCo2Emis() > c.getCo2Emis()) && (this.getPrix() > c.getPrix())) ||

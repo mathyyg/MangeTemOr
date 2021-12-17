@@ -18,8 +18,12 @@ public class Scooter extends Vehicule { //subclass java.Scooter
         this.scooterusingprice = (p/20000) + (this.scooterconso * Vehicule.getSp98price())/100;
     }
 
-    public double getScooterco2() {
+    public double getCo2() {
         return scooterco2;
+    }
+
+    public double getUsingPrice() {
+        return scooterusingprice;
     }
 
     public double getConso() {

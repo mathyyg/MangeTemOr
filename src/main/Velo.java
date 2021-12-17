@@ -14,6 +14,10 @@ public class Velo extends Vehicule { //subclass java.Velo
         this.velousingPrice = p/30000;
     }
 
+    public double getCo2() {
+        return this.veloco2;
+    }
+
     public double getAvgspeed() {
         return avgspeed;
     }
@@ -22,7 +26,7 @@ public class Velo extends Vehicule { //subclass java.Velo
         this.avgspeed = avgspeed;
     }
 
-    public double getVelousingPrice() {
+    public double getUsingPrice() {
         return velousingPrice;
     }
 

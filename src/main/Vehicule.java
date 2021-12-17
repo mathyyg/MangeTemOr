@@ -57,9 +57,7 @@ public abstract class Vehicule { //superclass vehicule
         this.speed = speed;
     }
 
-    public double getCo2() {
-        return co2;
-    }
+    public abstract double getCo2();
 
     public void setCo2(double co2) {
         this.co2 = co2;
@@ -73,9 +71,7 @@ public abstract class Vehicule { //superclass vehicule
         this.weight = weight;
     }
 
-    public double getUsingPrice() {
-        return usingPrice;
-    }
+    public abstract double getUsingPrice();
 
     public void setUsingPrice(double usingPrice) {
         this.usingPrice = usingPrice;
