@@ -35,6 +35,10 @@ public class Salaree {
             typeC = TypeOfCyclist.FIRSTTIME;
             this.cyclistspeed = 10;
         }
+        else if (typeOfCyclist == TypeOfCyclist.NON) {
+            typeC = TypeOfCyclist.NON;
+            this.cyclistspeed = 0;
+        }
         else {
             throw new Exception("Bon à un moment faut pas faire exprès non plus");
         }
@@ -83,7 +87,10 @@ public class Salaree {
     }
 
     public TypeOfCyclist getCylcistType() {
-        return cylcistType;
+        if (isCyclist) {
+            return cylcistType;
+        }
+        return TypeOfCyclist.NON;
     }
 
     public void setCylcistType(TypeOfCyclist cylcistType) {
@@ -92,6 +99,19 @@ public class Salaree {
 
     public double getcyclistspeed() {
         return cyclistspeed;
+    }
+
+    @Override
+    public String toString() {
+        return "Salaree{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                ", salaire=" + salaire +
+                ", utilityweight=" + utilityweight +
+                ", isCyclist=" + isCyclist +
+                ", cylcistType=" + cylcistType +
+                ", cyclistspeed=" + cyclistspeed +
+                '}';
     }
 
     public void setcyclistspeed(double cyclistspeed) {
