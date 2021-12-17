@@ -5,9 +5,9 @@ public class Main {
 
         Entreprise entreprise = new Entreprise();
         Salaree s1 = new Salaree("Jade",55,7.1,true, TypeOfCyclist.FIRSTTIME);
-        Salaree s2 = new Salaree("Alfred", 80, 7.2,false, TypeOfCyclist.FIRSTTIME); //à chnager pour non cycliste
+        Salaree s2 = new Salaree("Alfred", 80, 7.2,false, TypeOfCyclist.NON);
         Salaree s3 = new Salaree("Anna",67,7.4,true,TypeOfCyclist.EXPERT);
-        Salaree s4 = new Salaree("Tiago",62,7.2,false, TypeOfCyclist.FIRSTTIME); //a changer pour non cycliste
+        Salaree s4 = new Salaree("Tiago",62,7.2,false, TypeOfCyclist.NON);
         Salaree s5 = new Salaree("Blaise",74,7.25,true,TypeOfCyclist.AVERAGE);
         entreprise.addSalaree(s1);
         entreprise.addSalaree(s2);
