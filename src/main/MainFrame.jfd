@@ -228,7 +228,7 @@ new FormModel {
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
 					"$layoutConstraints": "hidemode 3,align center center"
 					"$columnConstraints": "[fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill][fill]"
-					"$rowConstraints": "[][][][][][][][][][][][][][]"
+					"$rowConstraints": "[][][][][][][][][][][][][][][]"
 				} ) {
 					name: "panel1"
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
@@ -240,7 +240,7 @@ new FormModel {
 							"maximumSize": new java.awt.Dimension( 200, 400 )
 						} )
 					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
-						"value": "cell 0 0 1 10,align center center,grow 0 0"
+						"value": "cell 0 0 1 11,align center center,grow 0 0"
 					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "button6"
@@ -261,46 +261,94 @@ new FormModel {
 						"value": "cell 6 2"
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label13"
+						"text": "Types de cycliste"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 17 2"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label14"
+						"text": "acceptés à rentrer:"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 17 3"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label15"
+						"text": "NON = non cycliste"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 17 4"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "label2"
 						"text": "Masse"
 					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
-						"value": "cell 6 4"
+						"value": "cell 6 5"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label16"
+						"text": "FIRSTTIME = débutant"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 17 5"
 					} )
 					add( new FormComponent( "javax.swing.JTextField" ) {
 						name: "textField6"
 						"preferredSize": new java.awt.Dimension( 150, 20 )
 					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
-						"value": "cell 6 5"
+						"value": "cell 6 6"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label17"
+						"text": "AVERAGE = moyen"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 17 6"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label18"
+						"text": "EXPERT = expert"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 17 7"
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "label3"
 						"text": "Salaire (€/h)"
 					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
-						"value": "cell 6 7"
+						"value": "cell 6 8"
 					} )
 					add( new FormComponent( "javax.swing.JTextField" ) {
 						name: "textField3"
 						"preferredSize": new java.awt.Dimension( 150, 25 )
 					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
-						"value": "cell 6 8"
+						"value": "cell 6 9"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label19"
+						"text": "ATTENTION ne pas rentrer"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 17 9"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label20"
+						"text": "un nom déjà pris"
+					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+						"value": "cell 17 10"
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "label4"
 						"text": "Type de Cycliste"
 					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
-						"value": "cell 6 10"
+						"value": "cell 6 11"
 					} )
 					add( new FormComponent( "javax.swing.JTextField" ) {
 						name: "textField4"
 						"preferredSize": new java.awt.Dimension( 150, 25 )
 					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
-						"value": "cell 6 11"
+						"value": "cell 6 12"
 					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "button5"
 						"text": "Sauvegarder"
 					}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
-						"value": "cell 17 13"
+						"value": "cell 17 14"
 					} )
 				}, new FormLayoutConstraints( null ) {
 					"title": "Salariés"
@@ -356,7 +404,7 @@ new FormModel {
 			}
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 10, 75 )
-			"size": new java.awt.Dimension( 870, 520 )
+			"size": new java.awt.Dimension( 940, 520 )
 		} )
 	}
 }

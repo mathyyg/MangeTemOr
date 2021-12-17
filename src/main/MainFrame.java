@@ -91,10 +91,18 @@ public class MainFrame extends JFrame {
         button6 = new JButton();
         label1 = new JLabel();
         textField5 = new JTextField();
+        label13 = new JLabel();
+        label14 = new JLabel();
+        label15 = new JLabel();
         label2 = new JLabel();
+        label16 = new JLabel();
         textField6 = new JTextField();
+        label17 = new JLabel();
+        label18 = new JLabel();
         label3 = new JLabel();
         textField3 = new JTextField();
+        label19 = new JLabel();
+        label20 = new JLabel();
         label4 = new JLabel();
         textField4 = new JTextField();
         button5 = new JButton();
@@ -372,6 +380,7 @@ public class MainFrame extends JFrame {
                     "[]" +
                     "[]" +
                     "[]" +
+                    "[]" +
                     "[]"));
 
                 //======== scrollPane4 ========
@@ -383,7 +392,7 @@ public class MainFrame extends JFrame {
                     list1.setMaximumSize(new Dimension(200, 400));
                     scrollPane4.setViewportView(list1);
                 }
-                panel1.add(scrollPane4, "cell 0 0 1 10,align center center,grow 0 0");
+                panel1.add(scrollPane4, "cell 0 0 1 11,align center center,grow 0 0");
 
                 //---- button6 ----
                 button6.setText("Ajouter Salari\u00e9");
@@ -397,38 +406,70 @@ public class MainFrame extends JFrame {
                 textField5.setPreferredSize(new Dimension(150, 25));
                 panel1.add(textField5, "cell 6 2");
 
+                //---- label13 ----
+                label13.setText("Types de cycliste");
+                panel1.add(label13, "cell 17 2");
+
+                //---- label14 ----
+                label14.setText("accept\u00e9s \u00e0 rentrer:");
+                panel1.add(label14, "cell 17 3");
+
+                //---- label15 ----
+                label15.setText("NON = non cycliste");
+                panel1.add(label15, "cell 17 4");
+
                 //---- label2 ----
                 label2.setText("Masse");
-                panel1.add(label2, "cell 6 4");
+                panel1.add(label2, "cell 6 5");
+
+                //---- label16 ----
+                label16.setText("FIRSTTIME = d\u00e9butant");
+                panel1.add(label16, "cell 17 5");
 
                 //---- textField6 ----
                 textField6.setPreferredSize(new Dimension(150, 20));
-                panel1.add(textField6, "cell 6 5");
+                panel1.add(textField6, "cell 6 6");
+
+                //---- label17 ----
+                label17.setText("AVERAGE = moyen");
+                panel1.add(label17, "cell 17 6");
+
+                //---- label18 ----
+                label18.setText("EXPERT = expert");
+                panel1.add(label18, "cell 17 7");
 
                 //---- label3 ----
                 label3.setText("Salaire (\u20ac/h)");
-                panel1.add(label3, "cell 6 7");
+                panel1.add(label3, "cell 6 8");
 
                 //---- textField3 ----
                 textField3.setPreferredSize(new Dimension(150, 25));
-                panel1.add(textField3, "cell 6 8");
+                panel1.add(textField3, "cell 6 9");
+
+                //---- label19 ----
+                label19.setText("ATTENTION ne pas rentrer");
+                panel1.add(label19, "cell 17 9");
+
+                //---- label20 ----
+                label20.setText("un nom d\u00e9j\u00e0 pris");
+                panel1.add(label20, "cell 17 10");
 
                 //---- label4 ----
                 label4.setText("Type de Cycliste");
-                panel1.add(label4, "cell 6 10");
+                panel1.add(label4, "cell 6 11");
 
                 //---- textField4 ----
                 textField4.setPreferredSize(new Dimension(150, 25));
-                panel1.add(textField4, "cell 6 11");
+                panel1.add(textField4, "cell 6 12");
 
                 //---- button5 ----
                 button5.setText("Sauvegarder");
-                panel1.add(button5, "cell 17 13");
+                panel1.add(button5, "cell 17 14");
             }
             tabbedPane1.addTab("Salari\u00e9s", panel1);
         }
         contentPane.add(tabbedPane1, BorderLayout.NORTH);
-        setSize(870, 520);
+        setSize(940, 520);
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
         initThemes();
@@ -910,10 +951,18 @@ public class MainFrame extends JFrame {
     private JButton button6;
     private JLabel label1;
     private JTextField textField5;
+    private JLabel label13;
+    private JLabel label14;
+    private JLabel label15;
     private JLabel label2;
+    private JLabel label16;
     private JTextField textField6;
+    private JLabel label17;
+    private JLabel label18;
     private JLabel label3;
     private JTextField textField3;
+    private JLabel label19;
+    private JLabel label20;
     private JLabel label4;
     private JTextField textField4;
     private JButton button5;
