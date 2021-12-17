@@ -42,7 +42,6 @@ public class Course implements Comparable<Course>{
     }
 
     public void setTrajet(ArrayList<Waypoint> points ){
-        points.remove(0);
         for (Waypoint wp : points) {
             trajet.add(new GpsPoint(wp.getPosition().getLatitude(), wp.getPosition().getLongitude()));
         }
@@ -88,8 +87,18 @@ public class Course implements Comparable<Course>{
         return this.getVehicule().getCo2() * getDistanceKm()*2;
     }
 
+    public double getCo2EmisSimulation() {
+        return this.getVehicule().getCo2() * 3 *2;
+    }
+
     public double getPrix() {
-        return salaree.getSalaire() + (vehicule.getPrice() * getDistanceKm()) * 2;
+        System.out.println(salaree.getSalaire());
+        System.out.println(vehicule.getPrice());
+        return (salaree.getSalaire() + (vehicule.getUsingPrice() * getDistanceKm())) * 2;
+    }
+
+    public double getPrixSimulation() {
+        return salaree.getSalaire() + (vehicule.getUsingPrice()*3)*2;
     }
 
     public double getDistanceKm() {
@@ -129,22 +138,26 @@ public class Course implements Comparable<Course>{
         if(getNbiterations()==0) {
             return false;
         }
-        else if(getProgress() >=100) {
+        else if(getNbiterations() >0 && getProgress() >=100) {
             return true;
         }
         return false;
     }
 
     public int compareTo(Course c){
-        if (((this.getCo2Emis() > c.getCo2Emis()) && (this.getPrix() > c.getPrix())) ||
-                ((this.getCo2Emis() > c.getCo2Emis()) && (this.getPrix() == c.getPrix())) ||
-                ((this.getCo2Emis() == c.getCo2Emis()) && (this.getPrix() > c.getPrix()))) {
+        if (((this.getCo2EmisSimulation() > c.getCo2EmisSimulation()) && (this.getPrixSimulation() > c.getPrixSimulation())) ||
+                ((this.getCo2EmisSimulation() > c.getCo2EmisSimulation()) && (this.getPrixSimulation() == c.getPrixSimulation())) ||
+                ((this.getCo2EmisSimulation() == c.getCo2EmisSimulation()) && (this.getPrixSimulation() > c.getPrixSimulation()))) {
             return -1;
         }
-        if ((this.getCo2Emis() == c.getCo2Emis()) && (this.getPrix()) == c.getPrix()) {
+        if ((this.getCo2EmisSimulation() == c.getCo2EmisSimulation()) && (this.getPrixSimulation()) == c.getPrixSimulation()) {
             return 0;
         }
         return 1;
     }
 
+    @Override
+    public String toString() {
+        return "Employé: "+this.getSalaree().getName()+" | Véhicule: "+this.getVehicule().getName()+" | CO2 émis: "+getCo2EmisSimulation()+" | Prix: "+getPrixSimulation()+"\n";
+    }
 }

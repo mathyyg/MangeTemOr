@@ -74,7 +74,7 @@ public class EtatCourseFrame extends JFrame {
         setSize(295, 230);
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
-        course.addIteration();
+//        course.addIteration();
 
         labelNomCourse.setText(name);
         poids.setText(poids.getText()+"5 kg");
