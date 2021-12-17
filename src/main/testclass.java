@@ -1,6 +1,7 @@
 package main;
 
 public class testclass {
-    String test;
+    String mateoleplusbo;
+    int kk;
     String test2;
 }
