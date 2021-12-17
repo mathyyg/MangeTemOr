@@ -70,9 +70,7 @@ public class MainFrame extends JFrame {
         table2 = new JTable();
         panel4 = new JPanel();
         button1 = new JButton();
-        button2 = new JButton();
         button3 = new JButton();
-        button4 = new JButton();
         label5 = new JLabel();
         textField1 = new JTextField();
         label8 = new JLabel();
@@ -162,7 +160,6 @@ public class MainFrame extends JFrame {
 
             //======== panel3 ========
             {
-
                 panel3.setLayout(new BorderLayout());
 
                 //======== panel5 ========
@@ -294,17 +291,9 @@ public class MainFrame extends JFrame {
                     button1.setText("Ajouter V\u00e9lo");
                     panel4.add(button1, "cell 2 0");
 
-                    //---- button2 ----
-                    button2.setText("Supprimer V\u00e9lo");
-                    panel4.add(button2, "cell 5 0");
-
                     //---- button3 ----
                     button3.setText("Ajouter Scooter");
                     panel4.add(button3, "cell 12 0");
-
-                    //---- button4 ----
-                    button4.setText("Supprimer Scooter");
-                    panel4.add(button4, "cell 17 0");
 
                     //---- label5 ----
                     label5.setText("Marque");
@@ -900,9 +889,7 @@ public class MainFrame extends JFrame {
     private JTable table2;
     private JPanel panel4;
     private JButton button1;
-    private JButton button2;
     private JButton button3;
-    private JButton button4;
     private JLabel label5;
     private JTextField textField1;
     private JLabel label8;
