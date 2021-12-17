@@ -1,5 +1,5 @@
 package main;
 
 public enum TypeOfCyclist {
-    FIRSTTIME, AVERAGE, EXPERT
+    NON, FIRSTTIME, AVERAGE, EXPERT
 }
