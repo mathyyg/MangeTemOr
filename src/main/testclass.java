@@ -5,4 +5,5 @@ public class testclass {
     int kk;
     String arabe;
     String test2;
+    String kk3;
 }
