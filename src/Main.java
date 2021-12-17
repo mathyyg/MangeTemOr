@@ -1,3 +1,4 @@
+import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 import main.*;
 
 public class Main {
@@ -26,6 +27,8 @@ public class Main {
         entreprise.addGa(sc1);
         entreprise.addGa(sc2);
         entreprise.addGa(sc3);
+
+        FlatDarkPurpleIJTheme.setup();
 
         LancementFrame lancementFrame = new LancementFrame(entreprise);
         lancementFrame.setVisible(true);

@@ -7,6 +7,7 @@ package main;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.*;
 import net.miginfocom.swing.*;
 
@@ -15,6 +16,7 @@ import net.miginfocom.swing.*;
  */
 public class LancementFrame extends JFrame {
     private Entreprise entreprise;
+    private Timer labelColor;
 
     public LancementFrame(Entreprise e) {
         initComponents();
@@ -65,7 +67,13 @@ public class LancementFrame extends JFrame {
                 nextFrame();
             }
         });
+        Color[] colorTable = new Color[]{Color.red, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.blue, Color.MAGENTA, Color.black,
+                Color.gray,Color.darkGray,Color.pink,Color.cyan};
+        labelColor = new Timer(200,e -> setMadeBy(colorTable[ThreadLocalRandom.current().nextInt(0,10)]));
+        labelColor.start();
     }
+
+    public void setMadeBy(Color color) { label2.setForeground(color); labelColor.start();}
 
     public void nextFrame() {
         MainFrame mainFrame = new MainFrame(entreprise);
