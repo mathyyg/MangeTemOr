@@ -35,10 +35,6 @@ public abstract class Vehicule { //superclass vehicule
         Vehicule.sp98price = sp98price;
     }
 
-
-
-
-
     public String getName() {
         return name;
     }

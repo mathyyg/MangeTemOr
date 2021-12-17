@@ -111,7 +111,6 @@ public class Course implements Comparable<Course>{
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
         return (int) (Math.round(AVERAGE_RADIUS_OF_EARTH * c));
-
     }
 
 
