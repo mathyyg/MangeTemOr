@@ -7,6 +7,7 @@ package main;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.ResultSet;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.EventListener;
 import java.util.HashMap;
@@ -50,6 +51,7 @@ public class MainFrame extends JFrame {
         label7 = new JLabel();
         scrollPane3 = new JScrollPane();
         listeCoursesEncours = new JList();
+        listeCoursesPossibles = new JButton();
         panel2 = new JPanel();
         vSpacer1 = new JPanel(null);
         scrollPane1 = new JScrollPane();
@@ -159,6 +161,7 @@ public class MainFrame extends JFrame {
                         "[fill]",
                         // rows
                         "[]" +
+                        "[]" +
                         "[]"));
 
                     //---- label7 ----
@@ -173,6 +176,10 @@ public class MainFrame extends JFrame {
                         scrollPane3.setViewportView(listeCoursesEncours);
                     }
                     panel5.add(scrollPane3, "cell 0 1");
+
+                    //---- listeCoursesPossibles ----
+                    listeCoursesPossibles.setText("Liste des courses possibles");
+                    panel5.add(listeCoursesPossibles, "cell 0 2");
                 }
                 panel3.add(panel5, BorderLayout.EAST);
             }
@@ -424,6 +431,14 @@ public class MainFrame extends JFrame {
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
 
+        listeCoursesPossibles.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ListeCoursesPossiblesFrame listeCoursesPossiblesFrame = new ListeCoursesPossiblesFrame(entreprise);
+                listeCoursesPossiblesFrame.setVisible(true);
+            }
+        });
+
         this.panel3.add(coursesPanel, BorderLayout.CENTER);
 
         initComboVehicule();
@@ -556,6 +571,32 @@ public class MainFrame extends JFrame {
                 etatCourseFrame.setVisible(true);
             }
         });
+
+        coursesPanel.nextIte.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for(String coid : courses.keySet()) {
+                    courses.get(coid).addIteration();
+                    if (courses.get(coid).estFinie()) {
+                        JOptionPane.showMessageDialog(getParent(), "La course "+coid.substring(7)+" est terminée.\n" +
+                                "Employé chargé de la course: " + courses.get(coid).getSalaree().getName() + "\n" +
+                                "Véhicule utilisé pour la course: " + courses.get(coid).getVehicule().getName() +"\n" +
+                                "Charge utile de la course: "+courses.get(coid).maxChargeUtile()+" kg\n" +
+                                "CO2 émis: " + courses.get(coid).getCo2Emis() + " g\n" +
+                                "Prix de la course: "+ new DecimalFormat("###.##").format(courses.get(coid).getPrix()) + " €",
+                                "Course terminée", JOptionPane.INFORMATION_MESSAGE);
+                        try {
+                            entreprise.getGa().setVehiculeDispo(courses.get(coid).getVehicule(), true);
+                        } catch (VehiculeIntrouvableException ex) {
+                            ex.printStackTrace();
+                        }
+                        courses.remove(coid);
+                        initListeCourses();
+                        initComboVehicule();
+                    }
+                }
+            }
+        });
     }
 
     private void initListeCourses() {
@@ -616,6 +657,7 @@ public class MainFrame extends JFrame {
     private JLabel label7;
     private JScrollPane scrollPane3;
     private JList listeCoursesEncours;
+    private JButton listeCoursesPossibles;
     private JPanel panel2;
     private JPanel vSpacer1;
     private JScrollPane scrollPane1;
